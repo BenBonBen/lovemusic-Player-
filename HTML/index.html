@@ -53,51 +53,37 @@
   <!-- 主页三个功能模块，1轮播图 2电台 3热门歌单 -->
   <div class="swiper-box">
     <div class="swiper">
-      <!-- 我的音乐 -->
-      <div class="myMusic"></div>
       <!-- 电台频道 -->
       <div class="dj">
+        <!-- 轮播图 -->
         <div class="slide">
           <ul class="imgul" id="imgul"></ul>
+          <ul class="slide-list" id="slide-list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <!-- 电台 -->
+        <div class="radioList">
+          <span>电台</span>
+          <div>
+            <a href="javascript:;" data-radioid="">
+              <img src="../img/info-bg.jpg" />
+              <span>还打海大</span>
+            </a>
+            <a href="javascript:;" data-radioid="">
+              <img src="../img/info-bg.jpg" />
+              <span>海大海大</span>
+            </a>
+          </div>
         </div>
       </div>
-      <!-- 讨论社区 -->
-      <div class="community"></div>
     </div>
   </div>
 </html>
 
 <script src="../JS/jquery-3.3.1.min.js"></script>
-<script>
-  $.ajax({
-    url: 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg', //请求的url地址
-    dataType: 'jsonp', //返回格式为json
-    async: true, //请求是否异步，默认为异步，这也是ajax重要特性
-    type: 'get', //请求方式
-    jsonp: 'jsonpCallback',
-    success: function(req) {
-      //请求成功时处理
-      var myData = req.data;
-      console.log(myData);
-      handleSlide(myData);
-    },
-    error: function() {
-      //请求出错处理
-      console.log('cuowu');
-    }
-  });
-
-  // 获取轮播图
-  function handleSlide(mydata) {
-    var $imgul = $('.imgul');
-    var slidehtml = '';
-    for (var i = 0; i < mydata.slider.length; i++) {
-      slidehtml += `<li>
-                        <a href="${mydata.slider[i].linkUrl}">
-                            <img src="${mydata.slider[i].picUrl}">
-                        </a>
-                    </li>`;
-    }
-    $imgul.html(slidehtml);
-  }
-</script>
+<script src="../JS/index.js"></script>

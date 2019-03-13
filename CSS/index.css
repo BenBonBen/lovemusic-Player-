@@ -104,7 +104,6 @@
   width: 100%;
 }
 .swiper-box .swiper .dj {
-  flex: 1;
   background: #f4f4f4;
   width: 100%;
 }
@@ -154,17 +153,85 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 0.4rem 0.4rem;
+  box-sizing: border-box;
+  padding-left: 3%;
+  padding-top: 2%;
+}
+.swiper-box .swiper .dj .radioList .radio {
+  padding-left: 2%;
 }
 .swiper-box .swiper .dj .radioList div {
   width: 100%;
+  padding-top: 0.4rem;
 }
 .swiper-box .swiper .dj .radioList div a {
   float: left;
-  width: 48%;
+  width: 46%;
+  background: white;
+  box-sizing: border-box;
+  padding: 2% 2%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.swiper-box .swiper .dj .radioList div a img {
+  width: 100%;
+}
+.swiper-box .swiper .dj .radioList div a span {
+  margin-top: 0.3rem;
+  color: black;
+}
+.swiper-box .swiper .dj .radioList div a:nth-child(2n) {
+  margin-left: 4%;
+}
+.swiper-box .swiper .dj .songList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 3%;
+  padding-top: 4%;
+}
+.swiper-box .swiper .dj .songList .hotmusic {
+  padding-left: 2%;
+}
+.swiper-box .swiper .dj .songList .song_detail {
+  padding-top: 0.4rem;
+  width: 100%;
+}
+.swiper-box .swiper .dj .songList .song_detail a {
+  float: left;
+  width: 46%;
   background: white;
   box-sizing: border-box;
   padding: 0.4rem 0.4rem;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  position: relative;
+}
+.swiper-box .swiper .dj .songList .song_detail a img {
+  width: 100%;
+}
+.swiper-box .swiper .dj .songList .song_detail a span {
+  color: black;
+}
+.swiper-box .swiper .dj .songList .song_detail a .songListAuthor {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.swiper-box .swiper .dj .songList .song_detail a .accessnum {
+  position: absolute;
+  bottom: 30%;
+  left: 10%;
+  color: white;
+  font-size: 0.5rem;
+}
+.swiper-box .swiper .dj .songList .song_detail a .songListDesc {
+  font-weight: bold;
+}
+.swiper-box .swiper .dj .songList .song_detail a:nth-child(2n) {
+  margin-left: 4%;
 }

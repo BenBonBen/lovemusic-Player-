@@ -8,7 +8,12 @@ $.ajax({
     //请求成功时处理
     var myData = req.data;
     console.log(myData);
+    // 轮播
     handleSlide(myData);
+    // 电台
+    handledj(myData);
+    //热门音乐
+    hotmusic(myData)
   },
   error: function() {
     //请求出错处理
@@ -44,7 +49,7 @@ function slideimg() {
   var oCircle = document.getElementById('slide-list');
   var aCircle = oCircle.getElementsByTagName('li');
 
-  function slide (index) {
+  function slide(index) {
     //先都去掉原点的active类名
     for (var i = 0; i < aCircle.length; i++) {
       aCircle[i].className = '';
@@ -91,7 +96,7 @@ function slideimg() {
       if (index >= 1 && index <= aCircle.length - 1) {
         index--;
         slide(index);
-      } else if(index <= 0){
+      } else if (index <= 0) {
         index = aCircle.length - 1;
         slide(index);
       } else {
@@ -101,7 +106,7 @@ function slideimg() {
       if (index >= 0 && index <= aCircle.length - 2) {
         index++;
         slide(index);
-      } else if(index >= aCircle.length - 1){
+      } else if (index >= aCircle.length - 1) {
         index = 0;
         slide(index);
       } else {
@@ -116,6 +121,104 @@ function slideimg() {
     };
   }
 }
-window.onload = function () {
+// 轮播图部分结束
+
+// 电台部分开始
+function handledj(radio_data) {
+  var $radio = $('.radio_detail');
+  var radiohtml = '';
+  for (var i = 0; i < radio_data.radioList.length; i++) {
+    radiohtml += `
+            <a href="javascript:;">
+              <img src="${radio_data.radioList[i].picUrl}" />
+              <span>${radio_data.radioList[i].Ftitle}</span>
+            </a>`;
+  }
+  $radio.html(radiohtml);
+}
+//电台部分结束
+
+function hotmusic(hotmusic_data) {
+  var $hotmusic = $('.song_detail');
+  var hmusichtml = '';
+  for (var i = 0; i < hotmusic_data.songList.length; i++) {
+    hmusichtml += `
+            <a href="javascript:;">
+              <img src="${hotmusic_data.songList[i].picUrl}" />
+              <span class="accessnum">${hotmusic_data.songList[i].accessnum/1000}万</span>
+              <span class="songListAuthor">
+              ${hotmusic_data.songList[i].songListDesc}
+              </span>
+              <span class="songListDesc">${hotmusic_data.songList[i].songListAuthor}</span>
+            </a>`;
+  }
+  $hotmusic.html(hmusichtml);
+}
+
+window.onload = function() {
   slideimg();
 };
+
+//搜索部分开始
+;(function() {
+  const searchInput = $('.search input')
+  const searchBtn = $('.search span.icon-sousuo')
+  const songList = $('.list')
+
+  searchInput.on('keydown', function(e) {
+    if (e.keyCode == 13) {
+      e.preventDefault()
+      searchMusic()
+    }
+  })
+  searchBtn.on('click', function() {
+    searchMusic()
+  })
+
+  function searchMusic() {
+    const keyword = searchInput[0].value
+    $.ajax({
+      url: 'http://127.0.0.1/searchMusic',
+      type: 'get',
+      data: {
+        keyword,
+        page: 1,
+        pagesize: 15
+      },
+      dataType: 'json',
+      success: function(rs) {
+        songList.html()
+        const data = rs.data
+        for (let i = 0; i < data.lists.length; i++) {
+          const str = data.lists[i].SingerName
+          const nameStr = data.lists[i].SongName
+          if (str.indexOf('<em>') !== -1 && str.indexOf('<em>') !== '-1') {
+            let formatStr =
+              str.slice(0, str.indexOf('<em>')) +
+              str.slice(str.indexOf('<em>') + 4, str.indexOf('</em>')) +
+              str.slice(str.indexOf('</em>') + 5)
+            data.lists[i].SingerName = formatStr
+          } else if (
+            nameStr.indexOf('<em>') !== -1 &&
+            nameStr.indexOf('<em>') !== '-1'
+          ) {
+            let formatName =
+              nameStr.slice(0, nameStr.indexOf('<em>')) +
+              nameStr.slice(
+                nameStr.indexOf('<em>') + 4,
+                nameStr.lastIndexOf('</em>')
+              ) +
+              nameStr.slice(nameStr.indexOf('</em>') + 5)
+            data.lists[i].SongName = formatName
+          }
+        }
+        const html = template('searchResult', data)
+        songList.html(html)
+      },
+      error: function(err) {
+        console.log(2)
+        console.log(err)
+      }
+    })
+  }
+})()

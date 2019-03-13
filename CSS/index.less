@@ -106,12 +106,14 @@
 
 .swiper-box {
   width: 100%;
+  // display: flex;
+  // align-items: center;
   margin-top: 3rem;
   margin-bottom: 4rem;
   .swiper {
     width: 100%;
     .dj {
-      flex: 1;
+      // flex: 1;
       background: #f4f4f4;
       width: 100%;
       .slide {
@@ -156,21 +158,91 @@
           }
         }
       }
+
       .radioList {
         width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 0.4rem 0.4rem;
+        box-sizing: border-box;
+        padding-left: 3%;
+        padding-top: 2%;
+        .radio {
+          padding-left: 2%;
+        }
         div {
+          width: 100%;
+          padding-top: 0.4rem;
+          a {
+            float: left;
+            width: 46%;
+            background: white;
+            box-sizing: border-box;
+            padding: 2% 2%;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            img {
+              width: 100%;
+            }
+            span {
+              margin-top: 0.3rem;
+              color: black;
+            }
+          }
+          a:nth-child(2n) {
+            margin-left: 4%;
+          }
+        }
+      }
+
+      .songList {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding-left: 3%;
+        padding-top: 4%;
+        .hotmusic {
+          padding-left: 2%;
+        }
+        .song_detail {
+          padding-top: 0.4rem;
           width: 100%;
           a {
             float: left;
-            width: 48%;
+            width: 46%;
             background: white;
             box-sizing: border-box;
             padding: 0.4rem 0.4rem;
             display: flex;
             flex-direction: column;
+            text-decoration: none;
+            position: relative;
+            img {
+              width: 100%;
+            }
+            span {
+              color: black;
+            }
+            .songListAuthor {
+              width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            .accessnum {
+              position: absolute;
+              bottom: 30%;
+              left: 10%;
+              color: white;
+              font-size: 0.5rem;
+            }
+            .songListDesc {
+              font-weight: bold;
+            }
+          }
+          a:nth-child(2n) {
+            margin-left: 4%;
           }
         }
       }

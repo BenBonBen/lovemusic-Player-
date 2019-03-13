@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../CSS/index.css" />
+    <link
+      rel="stylesheet"
+      href="http://at.alicdn.com/t/font_508229_s987uma0fiuow29.css"
+    />
+  </head>
+
+  <body>
+    <!-- 头部导航条 -->
+    <div class="nav">
+      <div class="container">
+        <a class="menu"></a>
+        <div>
+          <a href="" class="iconfont icon-yinyue"></a>
+          <a href="" class="iconfont icon-pindao"></a>
+          <a href="" class="iconfont icon-community"></a>
+        </div>
+        <a href="" class="search"></a>
+      </div>
+    </div>
+
+    <!-- 底部播放栏 -->
+    <div class="playBar">
+      <div class="container">
+        <a href="javascript:;" id="song-cover" class="fl">
+          <img
+            src="http://imge.kugou.com/stdmusic/20150720/20150720213627602031.jpg"
+          />
+        </a>
+        <a class="song-info" href="javascript:;">
+          <h4>张学友</h4>
+          <h5>张学友 - 只想一生跟你走</h5>
+        </a>
+        <div class="fr">
+          <a href="javascript:;" id="playList"></a>
+          <a href="javascript:;" id="playBtn" class="playing"></a>
+        </div>
+      </div>
+      <audio
+        id="music"
+        src="http://fs.w.kugou.com/201806010325/6bf3c8289daf1d3545078679563e5804/G005/M09/16/09/pYYBAFT59oGAC-fDAEyTcN8a4sA378.mp3"
+      ></audio>
+    </div>
+
+    <!-- 主页三个功能模块，1轮播图 2电台 3热门歌单 -->
+    <div class="swiper-box">
+      <div class="swiper">
+        <!-- 电台频道 -->
+        <div class="dj">
+          <!-- 轮播图 -->
+          <div class="slide">
+            <ul class="imgul" id="imgul"></ul>
+            <ul class="slide-list" id="slide-list">
+              <li class="active"></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <!-- 电台 -->
+          <div class="radioList">
+            <span class="radio">电台</span>
+            <div class="radio_detail" id="radio_detail"></div>
+          </div>
+
+          <!-- 热门歌单 -->
+          <div class="songList">
+            <span class="hotmusic">热门歌单</span>
+            <div class="song_detail" id="song_detail"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- 搜索页面 -->
+  <!-- 搜索音乐部分开始 -->
+  <!-- <div class="search">
+    <form>
+      <span class="iconfont icon-htmal5icon39 back"></span>
+      <input type="text" placeholder="输入你要搜索的关键词" />
+      <span class="iconfont icon-sousuo"></span>
+    </form>
+  </div>
+  <div class="list"></div> -->
+  <!-- 搜索音乐部分结束 -->
+</html>
+
+<script src="../JS/jquery-3.3.1.min.js"></script>
+<script src="../JS/index.js"></script>

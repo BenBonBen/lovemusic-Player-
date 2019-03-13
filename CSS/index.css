@@ -2,143 +2,176 @@
   margin: 0;
   padding: 0;
 }
+html {
+  width: 100%;
+  height: 100%;
+}
+html body {
+  width: 100%;
+  height: 100%;
+}
 .nav {
   width: 100%;
-  height: 3rem;
+  height: 7%;
   background-color: #0aa9ff;
-  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  align-items: center;
+  display: none;
 }
 .nav .container {
-  display: flex;
-  flex-direction: row;
   width: 90%;
+  height: 100%;
   margin: 0 auto;
 }
 .nav .container .menu {
   background: url(../img/Menu.png) no-repeat center;
-  height: 1.5rem;
-  width: 1.5rem;
-  background-size: 1.5rem;
+  height: 100%;
+  width: 15%;
+  background-size: 60%;
+  float: left;
 }
-.nav .container div {
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
+.nav .container .title {
+  height: 100%;
+  width: 70%;
+  float: left;
+  position: relative;
 }
-.nav .container div .iconfont {
+.nav .container .title a {
+  font-size: 2rem;
   text-decoration: none;
-  font-size: 1.5rem;
+  color: white;
+}
+.nav .container .title .icon-yinyue {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+.nav .container .title .icon-pindao {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+}
+.nav .container .title .icon-community {
+  position: absolute;
+  top: 20%;
+  left: 80%;
 }
 .nav .container .search {
   background: url(../img/search.png) no-repeat center;
-  height: 1.5rem;
-  width: 1.5rem;
-  background-size: 1.5rem;
+  height: 100%;
+  width: 15%;
+  background-size: 60%;
+  float: left;
 }
-.playBar {
+.playMusic {
+  width: 100%;
+  height: 9%;
   position: fixed;
+  background: white;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: white;
-  height: 4rem;
-  display: flex;
-  align-items: center;
   z-index: 1;
 }
-.playBar .container {
-  display: flex;
-  align-items: center;
+.playMusic .container {
   width: 90%;
+  height: 100%;
   margin: 0 auto;
 }
-.playBar .container #song-cover {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 0.2rem;
-}
-.playBar .container #song-cover img {
-  width: 100%;
+.playMusic .container .song_img {
+  float: left;
+  width: 20%;
   height: 100%;
 }
-.playBar .container .song-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-decoration: none;
+.playMusic .container .song_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
-.playBar .container .song-info h5 {
-  color: #0aa9ff;
+.playMusic .container .song_info {
+  float: left;
+  width: 60%;
+  height: 100%;
+  position: relative;
 }
-.playBar .container .fr a {
-  width: 2rem;
-  height: 2rem;
-  float: right;
-  margin-left: 0.5rem;
+.playMusic .container .song_info h4 {
+  position: absolute;
+  top: 20%;
+  left: 4%;
 }
-.playBar .container .fr .playing {
+.playMusic .container .song_info h5 {
+  position: absolute;
+  top: 55%;
+  left: 4%;
+}
+.playMusic .container .song_bar {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+.playMusic .container .song_bar .playBtn {
   background: url('../img/play.png') no-repeat center;
+  height: 100%;
+  width: 43%;
   background-size: 100%;
+  float: left;
+  margin-right: 14%;
 }
-.playBar .container .fr .pausing {
+.playMusic .container .song_bar .pausing {
   background: url('../img/pause.png') no-repeat center;
   background-size: 100%;
+  height: 100%;
+  width: 43%;
+  float: left;
 }
-.playBar .container .fr #playList {
+.playMusic .container .song_bar .playList {
   background: url('../img/playList.png') no-repeat center;
+  height: 100%;
+  width: 43%;
   background-size: 100%;
+  float: left;
 }
-.swiper-box {
+.content {
   width: 100%;
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-}
-.swiper-box .swiper {
-  width: 100%;
-}
-.swiper-box .swiper .dj {
+  height: 90%;
+  margin-top: 12.5%;
   background: #f4f4f4;
-  width: 100%;
+  overflow: scroll;
+  display: none;
 }
-.swiper-box .swiper .dj .slide {
+.content .slide {
   width: 100%;
-  height: 9rem;
+  height: 23%;
   overflow: hidden;
   position: relative;
 }
-.swiper-box .swiper .dj .slide .imgul {
+.content .slide .imgul {
+  list-style: none;
+  width: 500%;
+  height: 100%;
+  display: flex;
   position: absolute;
   left: 0;
-  width: 500%;
-  display: flex;
-  list-style: none;
 }
-.swiper-box .swiper .dj .slide .imgul li {
-  flex: 1;
+.content .slide .imgul li {
+  float: left;
 }
-.swiper-box .swiper .dj .slide .imgul li a {
-  display: block;
+.content .slide .imgul li a {
   width: 100%;
 }
-.swiper-box .swiper .dj .slide .imgul li a img {
+.content .slide .imgul li a img {
   width: 100%;
   height: 100%;
 }
-.swiper-box .swiper .dj .slide .slide-list {
+.content .slide .slide-list {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 0.4rem;
+  bottom: 0.5rem;
   list-style: none;
 }
-.swiper-box .swiper .dj .slide .slide-list li {
+.content .slide .slide-list li {
   float: left;
   width: 0.4rem;
   height: 0.4rem;
@@ -146,92 +179,126 @@
   background: white;
   margin-right: 0.2rem;
 }
-.swiper-box .swiper .dj .slide .slide-list .active {
+.content .slide .slide-list .active {
   background: orangered;
 }
-.swiper-box .swiper .dj .radioList {
+.content .radioList {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding-left: 3%;
-  padding-top: 2%;
+  margin-top: 3%;
 }
-.swiper-box .swiper .dj .radioList .radio {
+.content .radioList .radio {
   padding-left: 2%;
 }
-.swiper-box .swiper .dj .radioList div {
+.content .radioList .radio_detail {
   width: 100%;
   padding-top: 0.4rem;
+  margin: 0 auto;
 }
-.swiper-box .swiper .dj .radioList div a {
+.content .radioList .radio_detail a {
   float: left;
-  width: 46%;
+  width: 44%;
   background: white;
-  box-sizing: border-box;
   padding: 2% 2%;
-  display: flex;
-  flex-direction: column;
   text-decoration: none;
 }
-.swiper-box .swiper .dj .radioList div a img {
+.content .radioList .radio_detail a img {
   width: 100%;
 }
-.swiper-box .swiper .dj .radioList div a span {
+.content .radioList .radio_detail a span {
   margin-top: 0.3rem;
   color: black;
 }
-.swiper-box .swiper .dj .radioList div a:nth-child(2n) {
+.content .radioList .radio_detail a:nth-child(2n) {
   margin-left: 4%;
 }
-.swiper-box .swiper .dj .songList {
+.content .songList {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding-left: 3%;
-  padding-top: 4%;
+  margin-top: 3%;
 }
-.swiper-box .swiper .dj .songList .hotmusic {
+.content .songList .hotmusic {
   padding-left: 2%;
 }
-.swiper-box .swiper .dj .songList .song_detail {
-  padding-top: 0.4rem;
+.content .songList .song_detail {
   width: 100%;
+  padding-top: 0.4rem;
+  margin: 0 auto;
 }
-.swiper-box .swiper .dj .songList .song_detail a {
+.content .songList .song_detail a {
   float: left;
-  width: 46%;
+  width: 44%;
   background: white;
-  box-sizing: border-box;
-  padding: 0.4rem 0.4rem;
-  display: flex;
-  flex-direction: column;
+  padding: 2% 2%;
   text-decoration: none;
   position: relative;
 }
-.swiper-box .swiper .dj .songList .song_detail a img {
+.content .songList .song_detail a img {
   width: 100%;
 }
-.swiper-box .swiper .dj .songList .song_detail a span {
+.content .songList .song_detail a span {
+  margin-top: 0.3rem;
   color: black;
 }
-.swiper-box .swiper .dj .songList .song_detail a .songListAuthor {
-  width: 100%;
+.content .songList .song_detail a .songListAuthor {
+  display: block;
+  font-weight: bold;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: 100%;
 }
-.swiper-box .swiper .dj .songList .song_detail a .accessnum {
+.content .songList .song_detail a .accessnum {
   position: absolute;
   bottom: 30%;
   left: 10%;
   color: white;
   font-size: 0.5rem;
 }
-.swiper-box .swiper .dj .songList .song_detail a .songListDesc {
-  font-weight: bold;
+.content .songList .song_detail a .songListDesc {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
 }
-.swiper-box .swiper .dj .songList .song_detail a:nth-child(2n) {
+.content .songList .song_detail a:nth-child(2n) {
   margin-left: 4%;
+}
+.search {
+  width: 100%;
+  height: 7%;
+  background-color: #0aa9ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: relative;
+}
+.search form .back {
+  color: white;
+  font-size: 1.5rem;
+  width: 12%;
+  text-align: center;
+  line-height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 25%;
+}
+.search form input {
+  outline-style: none;
+  background: #0aa9ff;
+  color: white;
+  border: none;
+  border-bottom: 0.02rem solid #ffffff;
+  width: 76%;
+  height: 60%;
+  position: absolute;
+  left: 12%;
+  bottom: 25%;
+}
+.search form .icon-sousuo {
+  color: white;
+  font-size: 1.5rem;
+  width: 12%;
+  text-align: center;
+  position: absolute;
+  right: 0%;
+  top: 25%;
 }

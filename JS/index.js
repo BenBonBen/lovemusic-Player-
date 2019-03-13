@@ -146,10 +146,10 @@ function hotmusic(hotmusic_data) {
             <a href="javascript:;">
               <img src="${hotmusic_data.songList[i].picUrl}" />
               <span class="accessnum">${hotmusic_data.songList[i].accessnum/1000}万</span>
-              <span class="songListAuthor">
+              <span class="songListDesc">
               ${hotmusic_data.songList[i].songListDesc}
               </span>
-              <span class="songListDesc">${hotmusic_data.songList[i].songListAuthor}</span>
+              <span class="songListAuthor">${hotmusic_data.songList[i].songListAuthor}</span>
             </a>`;
   }
   $hotmusic.html(hmusichtml);

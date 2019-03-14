@@ -165,9 +165,9 @@ window.onload = function() {
 //搜索部分开始
 (function() {
   //获取input框
-  const searchInput = $('.search input');
+  const searchInput = $('.searchmusic input');
   // 获取搜索按钮
-  const searchBtn = $('.search span.icon-sousuo');
+  const searchBtn = $('.searchmusic span.icon-sousuo');
   // 获取显示歌单list
   const songList = $('.list');
 
@@ -200,7 +200,7 @@ window.onload = function() {
         iscorrection: '1',
         privilege_filter: 0,
         keyword: keyword,
-        pagesize: 10,
+        // pagesize: 10,
         page: 1
       }, //参数值
       type: 'GET', //请求方式
@@ -241,3 +241,40 @@ window.onload = function() {
     });
   }
 })();
+
+//点击下部播放栏
+$('.playMusic').on('click', function(e) {
+  var musicmsg = {
+    singer: $('#singer').html(),
+    SongName: $('#song').html(),
+    imgurl: $('#imgurl')[0].src,
+    musicurl: $('#music')[0].src
+  };
+  $('.list').css('display', 'none');
+  $('.nav').css('display', 'none');
+  $('.content').css('display', 'none');
+  $('.playMusic').css('display', 'none');
+  $('.searchmusic').css('display', 'none');
+  $('.player-interface').css('display', 'block');
+  // 传递播放详情页面数据
+  palyMusic(musicmsg);
+});
+// 同步底部播放信息到播放详情页
+function palyMusic(musicmsg) {
+  $('#detail_img').attr('src', musicmsg.imgurl);
+  $('#song_title').html(musicmsg.SongName);
+  $('#singer_dt').html(musicmsg.singer);
+  $('#music-link').attr('src', musicmsg.musicurl);
+  console.log(musicmsg.SongName);
+}
+
+
+//点击搜索页面
+$('#search').on('click', function (e) {
+  $('.nav').css('display', 'none');
+  $('.content').css('display', 'none');
+  $('.player-interface').css('display', 'none');
+  $('.searchmusic').css('display', 'block');
+  $('.list').css('display', 'block');
+  $('.playMusic').css('display', 'block');
+})

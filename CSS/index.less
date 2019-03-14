@@ -21,7 +21,7 @@ html {
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;
+  // display: none;
   .container {
     width: 90%;
     height: 100%;
@@ -78,6 +78,7 @@ html {
   bottom: 0;
   left: 0; // background-color: #0aa9ff;
   z-index: 1; // display: block;
+  // display: none;
   .container {
     width: 90%;
     height: 100%;
@@ -145,7 +146,7 @@ html {
   margin-top: 12.5%;
   background: #f4f4f4;
   overflow: scroll;
-  display: none;
+  // display: none;
   .slide {
     width: 100%;
     height: 23%;
@@ -270,7 +271,7 @@ html {
 }
 
 // 搜索导航条
-.search {
+.searchmusic {
   width: 100%;
   height: 7%;
   background-color: #0aa9ff;
@@ -279,6 +280,7 @@ html {
   left: 0;
   z-index: 1;
   position: relative;
+  display: none;
   form {
     .back {
       color: white;
@@ -314,11 +316,12 @@ html {
     }
   }
 }
-
+//搜索结果
 .list {
   width: 100%;
   height: 85%;
   overflow: scroll;
+  display: none;
   .songs {
     height: 10%;
     width: 100%;
@@ -344,6 +347,87 @@ html {
       span {
         font-size: 0.6rem;
       }
+    }
+  }
+}
+
+//播放界面
+#player-interface {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: none;
+  .container {
+    width: 90vw;
+    height: 95vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    .album_pic {
+      width: 90vw;
+      height: 90vw;
+      background: #cad7fc;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .spinning {
+      -webkit-animation: spin 10s infinite linear;
+    }
+    // @-webkit-keyframes spin {
+    //   from {
+    //     transform: rotate(0deg);
+    //   }
+    //   to {
+    //     transform: rotate(360deg);
+    //   }
+    // }
+    .song_title {
+      font-size: 20px;
+    }
+    .song_title,
+    .singer_dt {
+      display: flex;
+      justify-content: center;
+    }
+    .playstyles{
+      display: flex;
+      .current{
+        display: none;
+      }
+    }
+    .media_control {
+      align-self: stretch;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      img {
+        width: 42px;
+        height: 42px;
+      }
+    }
+    .progress-bar {
+      width: 100%;
+      height: 5px;
+      background: #eaeaea;
+      .progressing {
+        width: 0px;
+        height: 100%;
+        background: #3a6efd;
+      }
+    }
+    .music-link {
+      display: none;
+    }
+    .timeLine {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

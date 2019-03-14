@@ -18,7 +18,6 @@ html body {
   top: 0;
   left: 0;
   z-index: 1;
-  display: none;
 }
 .nav .container {
   width: 90%;
@@ -138,7 +137,6 @@ html body {
   margin-top: 12.5%;
   background: #f4f4f4;
   overflow: scroll;
-  display: none;
 }
 .content .slide {
   width: 100%;
@@ -261,7 +259,7 @@ html body {
 .content .songList .song_detail a:nth-child(2n) {
   margin-left: 4%;
 }
-.search {
+.searchmusic {
   width: 100%;
   height: 7%;
   background-color: #0aa9ff;
@@ -270,8 +268,9 @@ html body {
   left: 0;
   z-index: 1;
   position: relative;
+  display: none;
 }
-.search form .back {
+.searchmusic form .back {
   color: white;
   font-size: 1.5rem;
   width: 12%;
@@ -281,7 +280,7 @@ html body {
   left: 0%;
   top: 25%;
 }
-.search form input {
+.searchmusic form input {
   outline-style: none;
   background: #0aa9ff;
   color: white;
@@ -293,7 +292,7 @@ html body {
   left: 12%;
   bottom: 25%;
 }
-.search form .icon-sousuo {
+.searchmusic form .icon-sousuo {
   color: white;
   font-size: 1.5rem;
   width: 12%;
@@ -306,6 +305,7 @@ html body {
   width: 100%;
   height: 85%;
   overflow: scroll;
+  display: none;
 }
 .list .songs {
   height: 10%;
@@ -333,4 +333,75 @@ html body {
 }
 .list .songs div span {
   font-size: 0.6rem;
+}
+#player-interface {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: none;
+}
+#player-interface .container {
+  width: 90vw;
+  height: 95vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+#player-interface .container .album_pic {
+  width: 90vw;
+  height: 90vw;
+  background: #cad7fc;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#player-interface .container .album_pic img {
+  width: 100%;
+  height: 100%;
+}
+#player-interface .container .spinning {
+  -webkit-animation: spin 10s infinite linear;
+}
+#player-interface .container .song_title {
+  font-size: 20px;
+}
+#player-interface .container .song_title,
+#player-interface .container .singer_dt {
+  display: flex;
+  justify-content: center;
+}
+#player-interface .container .playstyles {
+  display: flex;
+}
+#player-interface .container .playstyles .current {
+  display: none;
+}
+#player-interface .container .media_control {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#player-interface .container .media_control img {
+  width: 42px;
+  height: 42px;
+}
+#player-interface .container .progress-bar {
+  width: 100%;
+  height: 5px;
+  background: #eaeaea;
+}
+#player-interface .container .progress-bar .progressing {
+  width: 0px;
+  height: 100%;
+  background: #3a6efd;
+}
+#player-interface .container .music-link {
+  display: none;
+}
+#player-interface .container .timeLine {
+  display: flex;
+  justify-content: space-between;
 }

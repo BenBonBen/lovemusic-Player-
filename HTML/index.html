@@ -14,7 +14,7 @@
 
   <body>
     <!-- 导航条 -->
-    <div class="nav">
+    <div class="nav" id="nav">
       <div class="container">
         <div class="menu"></div>
         <div class="title">
@@ -22,12 +22,12 @@
           <a href="" class="iconfont icon-pindao"></a>
           <a href="" class="iconfont icon-community"></a>
         </div>
-        <div class="search"></div>
+        <div class="search" id="search"></div>
       </div>
     </div>
 
     <!-- 内容板块 -->
-    <div class="content">
+    <div class="content" id="content">
       <!-- 轮播图 -->
       <div class="slide">
         <ul class="imgul" id="imgul"></ul>
@@ -54,17 +54,18 @@
     </div>
 
     <!-- 底部播放栏 -->
-    <div class="playMusic">
+    <div class="playMusic" id="playMusic">
       <div class="container">
         <div class="song_img">
           <img
             src="http://imge.kugou.com/stdmusic/20150720/20150720213627602031.jpg"
             alt=""
+            id="imgurl"
           />
         </div>
         <div class="song_info">
-          <h4>张学友</h4>
-          <h5>张学友 - 只想一生跟你走</h5>
+          <h4 class="singer" id="singer">张学友</h4>
+          <h5 class="song" id="song">张学友 - 只想一生跟你走</h5>
         </div>
         <div class="song_bar">
           <div class="playBtn"></div>
@@ -79,15 +80,43 @@
     <!-- 内容页结束 -->
 
     <!-- 搜索音乐部分开始 -->
-    <div class="search">
+    <div class="searchmusic" id="searchmusic">
       <form>
         <span class="iconfont icon-htmal5icon39 back"></span>
         <input type="text" placeholder="输入你要搜索的关键词" />
         <span class="iconfont icon-sousuo"></span>
       </form>
     </div>
-    <div class="list"></div>
+    <div class="list" id="list"></div>
     <!-- 搜索音乐部分结束 -->
+
+    <!-- 播放器界面开始 -->
+    <div id="player-interface">
+      <div class="container">
+        <div class="album_pic">
+          <div class="lyrics"></div>
+          <img src="" alt="" id="detail_img"/>
+        </div>
+        <div class="song_title" id="song_title"></div>
+        <div class="singer_dt" id="singer_dt"></div>
+        <div class="playstyles">
+          <span class="orderPlay">顺序播放</span>
+          <span class="randomPlay current">随机播放</span>
+        </div>
+        <div class="media_control">
+          <div class="icon-prev"><img src="../img/prev2.png" /></div>
+          <div class="icon-play"><img src="../img/play2.png" /></div>
+          <div class="icon-next"><img src="../img/next2.png" /></div>
+        </div>
+        <div class="progress-bar"><div class="progressing"></div></div>
+        <audio class="music-link" src="" id="music-link"></audio>
+        <div class="timeLine">
+          <span class="cur-time">00:00</span>
+          <span class="total-time">04:00</span>
+        </div>
+      </div>
+    </div>
+    <!-- 播放界面结束 -->
   </body>
 </html>
 

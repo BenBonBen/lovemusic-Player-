@@ -91,5 +91,21 @@
   </body>
 </html>
 
+<script id="searchResult" type="text/html">
+    <% for(var i=0;i<lists.length;i++){ %>
+        <div class="songs" onclick="playMusic('<%=lists[i].FileHash%>','<%=lists[i].AlbumID%>')">
+            <i class="iconfont icon-yinyue"></i>
+            <div>
+                <h3>
+                    <%=lists[i].SongName%>
+                </h3>
+                <span>
+                    <%=lists[i].SingerName%>
+                </span>
+            </div>
+        </div>
+        <% } %>
+</script>
 <script src="../JS/jquery-3.3.1.min.js"></script>
+<script src="../JS/template-web.js"></script>
 <script src="../JS/index.js"></script>

@@ -302,3 +302,35 @@ html body {
   right: 0%;
   top: 25%;
 }
+.list {
+  width: 100%;
+  height: 85%;
+  overflow: scroll;
+}
+.list .songs {
+  height: 10%;
+  width: 100%;
+  border-top: 1px solid gainsboro;
+  position: relative;
+}
+.list .songs .iconfont {
+  width: 10%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0%;
+  top: 35%;
+}
+.list .songs div {
+  height: 100%;
+  width: 89%;
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+.list .songs div h3 {
+  font-size: 1rem;
+}
+.list .songs div span {
+  font-size: 0.6rem;
+}

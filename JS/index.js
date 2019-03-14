@@ -13,7 +13,7 @@ $.ajax({
     // 电台
     handledj(myData);
     //热门音乐
-    hotmusic(myData)
+    hotmusic(myData);
   },
   error: function() {
     //请求出错处理
@@ -145,11 +145,14 @@ function hotmusic(hotmusic_data) {
     hmusichtml += `
             <a href="javascript:;">
               <img src="${hotmusic_data.songList[i].picUrl}" />
-              <span class="accessnum">${hotmusic_data.songList[i].accessnum/1000}万</span>
+              <span class="accessnum">${hotmusic_data.songList[i].accessnum /
+                1000}万</span>
               <span class="songListDesc">
               ${hotmusic_data.songList[i].songListDesc}
               </span>
-              <span class="songListAuthor">${hotmusic_data.songList[i].songListAuthor}</span>
+              <span class="songListAuthor">${
+                hotmusic_data.songList[i].songListAuthor
+              }</span>
             </a>`;
   }
   $hotmusic.html(hmusichtml);
@@ -160,44 +163,59 @@ window.onload = function() {
 };
 
 //搜索部分开始
-;(function() {
-  const searchInput = $('.search input')
-  const searchBtn = $('.search span.icon-sousuo')
-  const songList = $('.list')
+(function() {
+  //获取input框
+  const searchInput = $('.search input');
+  // 获取搜索按钮
+  const searchBtn = $('.search span.icon-sousuo');
+  // 获取显示歌单list
+  const songList = $('.list');
 
+  //绑定搜索框，按确认事件，按下确认执行搜索音乐函数
   searchInput.on('keydown', function(e) {
     if (e.keyCode == 13) {
-      e.preventDefault()
-      searchMusic()
+      e.preventDefault();
+      searchMusic();
     }
-  })
+  });
+  // 绑定搜索按钮点击事件，点击执行搜索音乐函数
   searchBtn.on('click', function() {
-    searchMusic()
-  })
+    searchMusic();
+  });
 
   function searchMusic() {
-    const keyword = searchInput[0].value
+    // 获取Input框内的值
+    const keyword = searchInput[0].value;
+    console.log(keyword);
     $.ajax({
-      url: 'http://127.0.0.1/searchMusic',
-      type: 'get',
+      url: 'http://songsearch.kugou.com/song_search_v2', //请求的url地址
+      dataType: 'jsonp', //返回格式为json
+      async: true, //请求是否异步，默认为异步，这也是ajax重要特性
       data: {
-        keyword,
-        page: 1,
-        pagesize: 15
-      },
-      dataType: 'json',
+        userid: parseInt(Math.random() * 100),
+        clientver: '',
+        platform: 'WebFilter',
+        tag: 'em',
+        filter: '2',
+        iscorrection: '1',
+        privilege_filter: 0,
+        keyword: keyword,
+        pagesize: 10,
+        page: 1
+      }, //参数值
+      type: 'GET', //请求方式
       success: function(rs) {
-        songList.html()
-        const data = rs.data
+        const data = rs.data;
+        console.log(rs);
         for (let i = 0; i < data.lists.length; i++) {
-          const str = data.lists[i].SingerName
-          const nameStr = data.lists[i].SongName
+          const str = data.lists[i].SingerName;
+          const nameStr = data.lists[i].SongName;
           if (str.indexOf('<em>') !== -1 && str.indexOf('<em>') !== '-1') {
             let formatStr =
               str.slice(0, str.indexOf('<em>')) +
               str.slice(str.indexOf('<em>') + 4, str.indexOf('</em>')) +
-              str.slice(str.indexOf('</em>') + 5)
-            data.lists[i].SingerName = formatStr
+              str.slice(str.indexOf('</em>') + 5);
+            data.lists[i].SingerName = formatStr;
           } else if (
             nameStr.indexOf('<em>') !== -1 &&
             nameStr.indexOf('<em>') !== '-1'
@@ -208,17 +226,18 @@ window.onload = function() {
                 nameStr.indexOf('<em>') + 4,
                 nameStr.lastIndexOf('</em>')
               ) +
-              nameStr.slice(nameStr.indexOf('</em>') + 5)
-            data.lists[i].SongName = formatName
+              nameStr.slice(nameStr.indexOf('</em>') + 5);
+            data.lists[i].SongName = formatName;
           }
         }
-        const html = template('searchResult', data)
-        songList.html(html)
+        const html = template('searchResult', data);
+        songList.html(html);
       },
       error: function(err) {
-        console.log(2)
-        console.log(err)
+        //请求出错处理
+        console.log(2);
+        console.log(err);
       }
-    })
+    });
   }
-})()
+})();

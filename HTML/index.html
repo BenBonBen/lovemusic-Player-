@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style id="dynamic"></style>
     <link rel="stylesheet" href="../CSS/index.css" />
     <link
       rel="stylesheet"
@@ -56,20 +57,20 @@
     <!-- 底部播放栏 -->
     <div class="playMusic" id="playMusic">
       <div class="container">
-        <div class="song_img">
+        <div class="song_img" id="song_img">
           <img
             src="http://imge.kugou.com/stdmusic/20150720/20150720213627602031.jpg"
             alt=""
             id="imgurl"
           />
         </div>
-        <div class="song_info">
+        <div class="song_info" id="song_info">
           <h4 class="singer" id="singer">张学友</h4>
           <h5 class="song" id="song">张学友 - 只想一生跟你走</h5>
         </div>
         <div class="song_bar">
-          <div class="playBtn"></div>
-          <div class="playList"></div>
+          <div class="playBtn" id="playbtn"></div>
+          <div class="playList" id="playList"></div>
         </div>
       </div>
       <audio
@@ -95,7 +96,7 @@
       <div class="container">
         <div class="album_pic">
           <div class="lyrics"></div>
-          <img src="" alt="" id="detail_img"/>
+          <img src="" alt="" id="detail_img" />
         </div>
         <div class="song_title" id="song_title"></div>
         <div class="singer_dt" id="singer_dt"></div>
@@ -107,6 +108,9 @@
           <div class="icon-prev"><img src="../img/prev2.png" /></div>
           <div class="icon-play"><img src="../img/play2.png" /></div>
           <div class="icon-next"><img src="../img/next2.png" /></div>
+          <div class="player-list">
+            <img src="../img/player-list.png" alt="" />
+          </div>
         </div>
         <div class="progress-bar"><div class="progressing"></div></div>
         <audio class="music-link" src="" id="music-link"></audio>
@@ -117,24 +121,31 @@
       </div>
     </div>
     <!-- 播放界面结束 -->
+
+    <!-- 播放列表开始 -->
+    <div class="MusicList" id="MusicList">
+      <ul></ul>
+    </div>
+    <!-- 播放列表结束 -->
   </body>
 </html>
 
 <script id="searchResult" type="text/html">
-    <% for(var i=0;i<lists.length;i++){ %>
-        <div class="songs" onclick="playMusic('<%=lists[i].FileHash%>','<%=lists[i].AlbumID%>')">
-            <i class="iconfont icon-yinyue"></i>
-            <div>
-                <h3>
-                    <%=lists[i].SongName%>
-                </h3>
-                <span>
-                    <%=lists[i].SingerName%>
-                </span>
-            </div>
-        </div>
-        <% } %>
+  <% for(var i=0;i<lists.length;i++){ %>
+      <div class="songs" onclick="playMusic('<%=lists[i].FileHash%>','<%=lists[i].AlbumID%>')">
+          <i class="iconfont icon-yinyue"></i>
+          <div>
+              <h3>
+                  <%=lists[i].SongName%>
+              </h3>
+              <span>
+                  <%=lists[i].SingerName%>
+              </span>
+          </div>
+      </div>
+      <% } %>
 </script>
 <script src="../JS/jquery-3.3.1.min.js"></script>
 <script src="../JS/template-web.js"></script>
 <script src="../JS/index.js"></script>
+<script src="../JS/tools.js"></script>

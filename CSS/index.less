@@ -20,8 +20,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
-  // display: none;
+  z-index: 1; // display: none;
   .container {
     width: 90%;
     height: 100%;
@@ -123,10 +122,11 @@ html {
       }
       .pausing {
         background: url('../img/pause.png') no-repeat center;
-        background-size: 100%;
         height: 100%;
         width: 43%;
+        background-size: 100%;
         float: left;
+        margin-right: 14%;
       }
       .playList {
         background: url('../img/playList.png') no-repeat center;
@@ -145,8 +145,7 @@ html {
   height: 90%;
   margin-top: 12.5%;
   background: #f4f4f4;
-  overflow: scroll;
-  // display: none;
+  overflow: scroll; // display: none;
   .slide {
     width: 100%;
     height: 23%;
@@ -316,6 +315,7 @@ html {
     }
   }
 }
+
 //搜索结果
 .list {
   width: 100%;
@@ -354,24 +354,21 @@ html {
 //播放界面
 #player-interface {
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  height: 100%; // flex-wrap: wrap;
   display: none;
   .container {
-    width: 90vw;
-    height: 95vh;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
     .album_pic {
       width: 90vw;
       height: 90vw;
       background: #cad7fc;
       border-radius: 50%;
       overflow: hidden;
+      position: absolute;
+      top: 5%; // left: 5%;
       img {
         width: 100%;
         height: 100%;
@@ -379,8 +376,7 @@ html {
     }
     .spinning {
       -webkit-animation: spin 10s infinite linear;
-    }
-    // @-webkit-keyframes spin {
+    } // @-webkit-keyframes spin {
     //   from {
     //     transform: rotate(0deg);
     //   }
@@ -389,33 +385,50 @@ html {
     //   }
     // }
     .song_title {
+      width: 100%;
+      text-align: center;
       font-size: 20px;
+      position: absolute;
+      top: 60%; // left: 23%;
     }
-    .song_title,
     .singer_dt {
-      display: flex;
-      justify-content: center;
+      position: absolute;
+      top: 64%;
+      width: 100%;
+      text-align: center;
     }
-    .playstyles{
-      display: flex;
-      .current{
+    .playstyles {
+      position: absolute;
+      top: 70%;
+      width: 100%;
+      text-align: left;
+      .current {
         display: none;
       }
     }
     .media_control {
-      align-self: stretch;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      img {
-        width: 42px;
-        height: 42px;
+      width: 80%;
+      position: absolute;
+      top: 75%;
+      left: 20%;
+      div {
+        float: left;
+        img {
+          width: 42px;
+          height: 42px;
+        }
+      }
+      div:nth-child(2) {
+        margin-left: 15%;
+        margin-right: 15%;
       }
     }
     .progress-bar {
       width: 100%;
       height: 5px;
       background: #eaeaea;
+      position: absolute;
+      top: 85%;
       .progressing {
         width: 0px;
         height: 100%;
@@ -426,8 +439,49 @@ html {
       display: none;
     }
     .timeLine {
-      display: flex;
-      justify-content: space-between;
+      width: 100%;
+      position: absolute;
+      top: 86%;
+      .cur-time {
+        position: absolute;
+        left: 0;
+      }
+      .total-time {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+//播放列表
+.MusicList {
+  position: fixed;
+  right: -7rem;
+  top: 50%;
+  width: 7rem;
+  height: 12rem;
+  box-shadow: 0 0 2px;
+  background: black;
+  opacity: 0.8;
+  transform: translateY(-50%);
+  font-size: 0.6rem;
+  color: white;
+  overflow: hidden;
+  z-index: 100;
+  ul {
+    width: 100%;
+    position: absolute;
+    li {
+      width: 100%;
+      height: 1.3rem;
+      line-height: 1.3rem;
+      padding-left: 1.4rem;
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border-bottom: 1px solid gainsboro;
     }
   }
 }
